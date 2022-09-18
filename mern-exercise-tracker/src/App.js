@@ -1,6 +1,12 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Switch,
+} from "react-router-dom";
 
 
 import Navbar from "./components/navbar.component";
@@ -12,11 +18,14 @@ import CreateUser from "./components/create-user.component";
 
 
 function App() {
+  // console.log(1)
   return (
-    <Router>
+    <BrowserRouter>
       <div className='container'>
         <Navbar />
         <br/>
+
+        {/* // console.log(<ExercisesList />) */}
         <Routes>
           <Route path = "/" element={<ExercisesList />} />
           <Route path = "/edit/:id" element = {<EditExercise />} />
@@ -24,11 +33,36 @@ function App() {
           <Route path = "/user" element = {<CreateUser />} />
         </Routes>
       </div>
-        
-        
-    </Router>
+    </BrowserRouter>
+
+    // <BrowserRouter>
+    // <Routes>
+    //   <Route path="/" element={<ExercisesList />}>
+    //     {/* <Route index element={<Home />} />
+    //     <Route path="teams" element={<Teams />}>
+    //       <Route path=":teamId" element={<Team />} />
+    //       <Route path="new" element={<NewTeamForm />} />
+    //       <Route index element={<LeagueStandings />} />
+    //     </Route> */}
+    //   </Route>
+    // </Routes>
+    // </BrowserRouter>
     
   );
 }
+
+{/* <BrowserRouter>
+<Routes>
+  <Route path="/" element={<App />}>
+    <Route index element={<Home />} />
+    <Route path="teams" element={<Teams />}>
+      <Route path=":teamId" element={<Team />} />
+      <Route path="new" element={<NewTeamForm />} />
+      <Route index element={<LeagueStandings />} />
+    </Route>
+  </Route>
+</Routes>
+</BrowserRouter>,
+document.getElementById("root") */}
 
 export default App;
